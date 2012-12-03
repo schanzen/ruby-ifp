@@ -1,0 +1,48 @@
+Ruby-iFP README
+============
+
+  Ruby-iFP are Ruby bindings to the libifp library used to
+  communicate and interact with iriver iFP devices.
+
+
+Requirements
+------------
+
+  * Ruby 1.8
+  * C compiler
+  * libifp
+
+
+Install
+-------
+
+  De-compress archive and enter its top directory.
+  Then type:
+
+   ($ su)
+    # ruby extconf.rb
+    # make
+    # make install
+
+  These simple steps install the bindings under the default
+  location of Ruby libraries.
+
+
+Usage
+-----
+
+  All classes and methods are documented in doc/rbifpapi.html
+  file. Additionally there is a sample file in sample/rbifpsample.rb.
+
+Known Issues
+------------
+
+	- None
+	
+License
+-------
+
+  GNU LGPL, Lesser General Public License version 2.1
+
+
+Martin Schanzenbach <grayfox@gnetoo-clan.org>

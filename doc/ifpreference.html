@@ -1,0 +1,113 @@
+<?php include('./header.php'); ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link title="new" rel="stylesheet" href="style.css" type="text/css"/>
+<title>~Fox - Ruby-iFP - Reference</title>
+</head>
+<body>
+<p align="center">Ruby-iFP API Reference</p>
+<p class="title">Module Methods</p>
+<p class="apicode">&gt; version = IFP.version</p>
+Returns the version in an array.<br/>
+You can convert it to a readable form like this:
+<p class="apicode">&gt; IFP.version.join(".")</p>
+<br/>
+<p class="title">Module Constants</p>
+<p class="apicode">&gt; IFP::FM_STATIONS</p>
+Returns number of FM stations the device can store.<br/>
+<p class="apicode">&gt; IFP::FREQ_MIN</p>
+The lowest frequency possible.<br/>
+<p class="apicode">&gt; IFP::FREQ_MAX</p>
+The highest frequency possible.<br/>
+
+<p class="title">Main Class</p>
+Creating a new IFP::Player class:
+<p class="apicode">&gt; require 'ifp'<br/>
+&gt; player = IFP::Player.new</p>
+<br/>
+Raises an Interrupt exception if device is busy or not responding.
+
+<p class="title">Class Methods</p>
+<p class="apicode">&gt; IFP::Player.capacity</p>
+Returns player's capacity in bytes.<br/>
+<br/>
+<p class="apicode">&gt; IFP::Player.free_space</p>
+Returns free space on player in bytes.<br/>
+<br/>
+<p class="apicode">&gt; IFP::Player.firmver</p>
+Returns raw version integer.<br/>
+<br/>
+<p class="apicode">&gt; IFP::Player.battery_state</p>
+Returns an integer between 1 and 4 depending on battery status.<br/>
+<br/>
+<p class="apicode">&gt; IFP::Player.model</p>
+Returns model string.<br/>
+<br/>
+<p class="apicode">&gt; IFP::Player.rename(oldName, newName)</p>
+Renames file with 'oldName' to 'newName'.<br/>
+Returns true if successful, false if not.<br/>
+<br/>
+<p class="apicode">&gt; IFP::Player.remove_file(file)</p>
+Returns true if 'file' has been removed successfully<br/>
+from player.<br/>
+Raises IOError if not.<br/>
+<br/>
+<p class="apicode">&gt; IFP::Player.entries(dir) {|name, size, type| }</p>
+Use the block to collect entries of 'dir' and metadata.<br/>
+Returns true or false.<br/>
+<br/>
+<p class="apicode">&gt; IFP::Player.download_file(src, dest) {|name, bytesDone, bytesTotal,
+filesDone, filesTotal| }</p>
+Downloads 'src' to 'dest'. Use block for<br/>
+metadata.<br/>
+Raises IOError on failure.<br/>
+<br/>
+<p class="apicode">&gt; IFP::Player.upload_file(src, dest) {|name, bytesDone, bytesTotal,
+filesDone, filesTotal| }</p>
+Uploads 'src' to 'dest'. Use block for<br/>
+metadata.<br/>
+Raises IOError on failure.<br/>
+<br/>
+<p class="apicode">&gt; IFP::Player.download_dir(src, dest) {|name, bytesDone, bytesTotal,
+filesDone, filesTotal| }</p>
+Downloads 'src' to 'dest'. Use block for<br/>
+metadata.<br/>
+Raises IOError on failure.<br/>
+<br/>
+<p class="apicode">&gt; IFP::player.upload_dir(src, dest) {|name, bytesDone, bytesTotal,
+filesDone, filesTotal| }</p>
+Uploads 'src' to 'dest'. Use block for<br/>
+metadata.<br/>
+Raises IOError on failure.<br/>
+<br/>
+<p class="apicode">&gt; IFP::Player.mkdir(dir)</p>
+Creates 'dir' on device.<br/>
+Returns true if successful,<br/>
+raises IOError if not.<br/>
+<br/>
+<p class="apicode">&gt; IFP::Player.rmdir(dir)</p>
+Removes 'dir' from device.<br/>
+Returns true if successful,<br/>
+raises IOError if not.<br/>
+<br/>
+<p class="apicode">&gt; IFP::Player.file?(file)</p>
+Returns true if 'file' exists false if not.<br/>
+<br/>
+<p class="apicode">&gt; IFP::Player.directory?(dir)</p>
+Returns true if 'dir' exists false if not.<br/>
+<br/>
+<p class="apicode">&gt; IFP::Player.exists?(file)</p>
+Returns true if 'file' exists false if not.<br/>
+<br/>
+<p class="apicode">&gt; IFP::Player.treewalk_dirs(dir) {|path, size, type|}</p>
+Recursively iters through 'dir'.<br/>
+Use block to collect files.<br/>
+<br/>
+<p class="apicode">&gt; IFP::Player.get_station(n)</p>
+Returns an array holding the callsign and frequency of<br/>
+radio station #n.<br/>
+<br/>
+<p class="apicode">&gt; IFP::Player.set_station(n, callsign, freq)</p>
+Set radio station #n with label 'callsign' and frequency 'freq'.<br/>
+<br/>
+</html>
